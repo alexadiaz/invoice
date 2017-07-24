@@ -1,0 +1,34 @@
+body{
+    margin: 100px 200px 100px 200px;
+}
+
+.container{
+    border: 2px solid black;
+}
+
+.titulo{
+    text-align: center;
+}
+
+.ingresar,
+.totales{
+    position: relative;
+}
+
+.ingresar_producto{
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.ingresar_cantidad,
+.total_factura{
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+}
+
+.firma{
+    display: inline-block;
+    margin-left: 30%;
+    border-top: 1px solid black;
+}
