@@ -8,7 +8,7 @@ function getId(id){
 
 function createElement(elemento,contenido){
     var temp = document.createElement(elemento);
-    temp.textcontent = contenido.textcontent;
+    temp.textContent = contenido.value;
     return temp;
 }
 
