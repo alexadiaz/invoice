@@ -6,8 +6,10 @@ function getId(id){
     return document.getElementById(id);
 }
 
-function createElement(elemento){
-    return document.createElement(elemento);
+function createElement(elemento,contenido){
+    var temp = document.createElement(elemento);
+    temp.textcontent = contenido.textcontent;
+    return temp;
 }
 
 function comenzar(){
@@ -16,18 +18,18 @@ function comenzar(){
     var contenidoUl = getId("contenido");
 
     ingresar_productoInput.addEventListener("click",function(){
-        crear_contenidoUl(contenidoUl);
+        crear_contenidoUl(ingresar_productoInput,ingresar_cantidadInput,contenidoUl);
         guardar_contenidoLi(ingresar_productoInput,ingresar_cantidadInput,contenidoUl);
     });
 }
 
-function crear_contenidoUl(ul){
-    var elementoLi = createElement("li");
+function crear_contenidoUl(producto,cantidad,ul){
+    var elementoLi = createElement("li","1");
     
-    var elemento_productoSpan = createElement("span");
-    var elemento_cantidadSpan = createElement("span");
-    var elemento_unitarioSpan = createElement("span");
-    var elemento_totalSpan = createElement("span");
+    var elemento_productoSpan = createElement("span",producto);
+    var elemento_cantidadSpan = createElement("span",cantidad);
+    var elemento_unitarioSpan = createElement("span","1");
+    var elemento_totalSpan = createElement("span","1");
 
     elementoLi.appendChild(elemento_productoSpan);
     elementoLi.appendChild(elemento_cantidadSpan);
