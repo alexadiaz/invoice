@@ -16,11 +16,12 @@ function comenzar(){
     var contenidoUl = getId("contenido");
 
     ingresar_productoInput.addEventListener("click",function(){
-        crear_contenidoUl(ingresar_productoInput,ingresar_cantidadInput,contenidoUl);
+        crear_contenidoUl(contenidoUl);
+        guardar_contenidoLi(ingresar_productoInput,ingresar_cantidadInput,contenidoUl);
     });
 }
 
-function crear_contenidoUl(producto,cantidad,ul){
+function crear_contenidoUl(ul){
     var elementoLi = createElement("li");
     
     var elemento_productoSpan = createElement("span");
@@ -34,8 +35,6 @@ function crear_contenidoUl(producto,cantidad,ul){
     elementoLi.appendChild(elemento_totalSpan);
 
     ul.appendChild(elementoLi);
-    
-    guardar_contenidoLi(producto,cantidad,ul);
 }
 
 function guardar_contenidoLi(producto,cantidad,ul){
@@ -51,4 +50,5 @@ function guardar_contenidoLi(producto,cantidad,ul){
             valor_total: "2000"
         }
     }
+    console.log(contenidoLi);
 }
