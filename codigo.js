@@ -11,8 +11,13 @@ function createElement(elemento){
 }
 
 function asignar_propiedades(elemento,contenido){
-    elemento.textContent = contenido.value;
-    elemento.className= "js_margen_contenido";
+    if(elemento.nodeName==="SPAN"){
+        elemento.textContent = contenido.value;
+        elemento.className= "js_margen_contenido";
+    }
+    else{
+        elemento.className= contenido;
+    }
 }
 
 function comenzar(){
@@ -27,6 +32,7 @@ function comenzar(){
 
 function crear_contenidoUl(producto,cantidad,ul){
     var elementoLi = createElement("li");
+    asignar_propiedades(elementoLi,"js_contenidoli");
     
     var elemento_productoSpan = createElement("span");
     asignar_propiedades(elemento_productoSpan,producto);
