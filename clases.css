@@ -19,22 +19,22 @@ body{
     margin-left: 20px;
 }
 
-.ingresar_cantidad,
-.total_factura{
+.ingresar_cantidad{
     display: inline-block;
     position: absolute;
     right: 20px;
 }
 
 .subtitulo{
-    margin: 5% 5% 2% 5%;
+    margin: 5% 5% 0 5%;
     font-weight: bold;
     border: 1px solid black;
     text-align: center;
 }
 
 .margen_subtitulo{
-    padding-right: 10%
+    display:inline-block;
+    width: 23%;
 }
 
 .articulos{
@@ -43,6 +43,8 @@ body{
 
 .contenido{
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .totales{
@@ -56,6 +58,20 @@ body{
     border-top: 1px solid black;
 }
 
+.total_factura{
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+}
+
+.js_contenidoli{
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    text-align: center;
+}
+
 .js_margen_contenido{
-    padding-right: 20%
+    display:inline-block;
+    width: 23%;
 }
