@@ -40,7 +40,6 @@ function crear_contenidoUl(producto,cantidad,ul){
     var elemento_totalSpan = createElement("span");
     asignar_propiedades(elemento_totalSpan,cantidad);
     
-    
     elementoLi.appendChild(elemento_productoSpan);
     elementoLi.appendChild(elemento_cantidadSpan);
     elementoLi.appendChild(elemento_unitarioSpan);
