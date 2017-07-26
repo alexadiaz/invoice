@@ -13,8 +13,11 @@ function createElement(elemento){
 function asignar_propiedades(elemento,contenido){
     if(elemento.nodeName==="SPAN"){
         elemento.textContent = contenido.value;
-        elemento.className= "js_margen_contenido";
     }
+    else{
+        elemento.innerText=contenido;
+    }
+    elemento.className= "js_margen_contenido";
 }
 
 function comenzar(){
@@ -39,8 +42,9 @@ function crear_contenidoUl(producto,cantidad,ul){
     var elemento_unitarioSpan = createElement("span");
     asignar_propiedades(elemento_unitarioSpan,producto);
     
-    var elemento_totalSpan = createElement("span");
-    asignar_propiedades(elemento_totalSpan,cantidad);
+    var elemento_totalSpan = createElement("div");
+    var valor_total = calcular_valor_total(elemento_cantidadSpan);
+    asignar_propiedades(elemento_totalSpan,valor_total);
     
     elementoLi.appendChild(elemento_productoSpan);
     elementoLi.appendChild(elemento_cantidadSpan);
@@ -60,4 +64,8 @@ function guardar_contenidoUl(li){
         valor_total: li.children[3].textContent
     }); 
     console.log(contenidoLi);
+}
+
+function calcular_valor_total(cantidad){
+    return(parseInt(cantidad.textContent)*10);
 }
