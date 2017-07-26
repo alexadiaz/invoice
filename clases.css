@@ -10,8 +10,7 @@ body{
     text-align: center;
 }
 
-.ingresar,
-.totales{
+.ingresar{
     position: relative;
 }
 
@@ -28,18 +27,35 @@ body{
 }
 
 .subtitulo{
-    margin: 5%;
+    margin: 5% 5% 2% 5%;
     font-weight: bold;
     border: 1px solid black;
     text-align: center;
 }
 
-.margen_contenido{
+.margen_subtitulo{
     padding-right: 10%
+}
+
+.articulos{
+    margin: 0 5% 0 5%;
+}
+
+.contenido{
+    list-style-type: none;
+}
+
+.totales{
+    position: relative;
+    margin: 10% 5% 2% 5%;
 }
 
 .firma{
     display: inline-block;
     margin-left: 30%;
     border-top: 1px solid black;
+}
+
+.js_margen_contenido{
+    padding-right: 20%
 }
