@@ -28,13 +28,15 @@ body{
 .subtitulo{
     margin: 5% 5% 0 5%;
     font-weight: bold;
-    border: 1px solid black;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
     text-align: center;
 }
 
 .margen_subtitulo{
     display:inline-block;
-    width: 23%;
+    width: 24%;
 }
 
 .articulos{
@@ -45,6 +47,7 @@ body{
     list-style-type: none;
     margin: 0;
     padding: 0;
+    border: 1px solid black;
 }
 
 .totales{
@@ -64,14 +67,8 @@ body{
     right: 20px;
 }
 
-.js_contenidoli{
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
-    border-left: 1px solid black;
-    text-align: center;
-}
-
 .js_margen_contenido{
     display:inline-block;
-    width: 23%;
+    width: 24%;
+    border-left: 1px solid black;
 }
