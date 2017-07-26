@@ -67,5 +67,14 @@ function guardar_contenidoUl(li){
 }
 
 function calcular_valor_total(cantidad){
-    return(parseInt(cantidad.textContent)*10);
+    var calculo = parseInt(cantidad.textContent)*10;
+    calcular_total_factura(calculo);
+    return calculo;
+}
+
+var total=0;
+function calcular_total_factura(calculo){
+    var total_factura= getId("total_factura");
+    total= total + calculo;
+    total_factura.textContent = total;
 }
