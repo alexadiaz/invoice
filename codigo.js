@@ -88,7 +88,7 @@ function guardar_contenidoUl(li){
 function modificar_contenidoUl(li){
     for (var i in contenidoLi){
         if(li.data === contenidoLi[i].id){
-            contenidoLi[i].articulo = nueva_info();
+            contenidoLi[i].articulo = nueva_info(li);
         }
     }
     actualizar_pantalla(li);
@@ -102,8 +102,14 @@ function actualizar_pantalla(li){
     }
 }
 
-function nueva_info(){
-    return prompt("Ingrese producto");
+function nueva_info(li){
+    var result= prompt("Ingrese producto",li.firstChild.textContent);
+    if (result=== "" || result === null){
+        return li.firstChild.textContent;
+    }
+    else{
+        return result;
+    }
 }
 
 function calcular_valor_total(cantidad){
