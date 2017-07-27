@@ -75,16 +75,29 @@ var contenidoLi=[];
 function guardar_contenidoUl(li){
     contenidoLi.push({
         id: li.data,
-        articulo: li.children[1].textContent,
-        cantidad: li.children[2].textContent,
-        valor_unitatio: li.children[3].textContent,
-        valor_total: li.children[4].textContent
+        articulo: li.children[0].textContent,
+        cantidad: li.children[1].textContent,
+        valor_unitatio: li.children[2].textContent,
+        valor_total: li.children[3].textContent
     }); 
     console.log(contenidoLi);
 }
 
 function modificar_contenidoUl(li){
-    nueva_info();
+    for (var i in contenidoLi){
+        if(li.data === contenidoLi[i].id){
+            contenidoLi[i].articulo = nueva_info();
+        }
+    }
+    actualizar_pantalla(li);
+}
+
+function actualizar_pantalla(li){
+     for (var i in contenidoLi){
+        if(li.data === contenidoLi[i].id){
+            li.firstChild.textContent = contenidoLi[i].articulo;
+        }
+    }
 }
 
 function nueva_info(){
