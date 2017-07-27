@@ -37,7 +37,9 @@ function comenzar(){
         var keyname = event.key; 
 
         if (keyname === "Enter"){
-            crear_contenidoUl(ingresar_productoInput,ingresar_cantidadInput,contenidoUl);
+            if (ingresar_productoInput.value !== "" && ingresar_cantidadInput.value !==""){
+                crear_contenidoUl(ingresar_productoInput,ingresar_cantidadInput,contenidoUl);
+            }
         }
     });
 }
