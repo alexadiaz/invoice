@@ -74,10 +74,11 @@ function crear_contenidoUl(producto,cantidad,ul){
 var contenidoLi=[];
 function guardar_contenidoUl(li){
     contenidoLi.push({
-        articulo: li.children[0].textContent,
-        cantidad: li.children[1].textContent,
-        valor_unitatio: li.children[2].textContent,
-        valor_total: li.children[3].textContent
+        id: li.data,
+        articulo: li.children[1].textContent,
+        cantidad: li.children[2].textContent,
+        valor_unitatio: li.children[3].textContent,
+        valor_total: li.children[4].textContent
     }); 
     console.log(contenidoLi);
 }
