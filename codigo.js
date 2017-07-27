@@ -25,8 +25,12 @@ function comenzar(){
     var ingresar_cantidadInput = getId("ingresar_cantidad");
     var contenidoUl = getId("contenido");
     
-    ingresar_productoInput.addEventListener("click",function(){
-        crear_contenidoUl(ingresar_productoInput,ingresar_cantidadInput,contenidoUl);
+    ingresar_cantidadInput.addEventListener("keyup", (event)=>{
+        var keyname = event.key; 
+
+        if (keyname === "Enter"){
+            crear_contenidoUl(ingresar_productoInput,ingresar_cantidadInput,contenidoUl);
+        }
     });
 }
 
