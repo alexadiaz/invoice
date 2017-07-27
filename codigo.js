@@ -6,25 +6,25 @@ function getId(id){
     return document.getElementById(id);
 }
 
-function createElement(elemento,pegar){
+function create_pegar_elementosUl(elemento,pegar){
     var temp = document.createElement(elemento);
     pegar.appendChild(temp);
     return temp;
 }
 
-function asignar_propiedades(elemento,contenido){
+function propiedades_elementosLi(elemento,contenido){
+    elemento.className="js_margen_contenido";
     switch(elemento.nodeName){
         case "SPAN":
             elemento.textContent=contenido.value;
-            elemento.className="js_margen_contenido";
             break;
         case "DIV":
             elemento.innerText=contenido;
-            elemento.className="js_margen_contenido";
             break; 
         case "INPUT":
-            elemento.type= contenido;
-            elemento.value="Modificar";
+            elemento.value= contenido;
+            elemento.type= "button";
+            break;
     }
 }
 
@@ -45,23 +45,23 @@ function comenzar(){
 }
 
 function crear_contenidoUl(producto,cantidad,ul){
-    var elementoLi = createElement("li",ul);
+    var elementoLi = create_pegar_elementosUl("li",ul);
        
-    var elemento_productoSpan = createElement("span",elementoLi);
-    asignar_propiedades(elemento_productoSpan,producto);
+    var elemento_productoSpan = create_pegar_elementosUl("span",elementoLi);
+    propiedades_elementosLi(elemento_productoSpan,producto);
     
-    var elemento_cantidadSpan = createElement("span",elementoLi);
-    asignar_propiedades(elemento_cantidadSpan,cantidad);
+    var elemento_cantidadSpan = create_pegar_elementosUl("span",elementoLi);
+    propiedades_elementosLi(elemento_cantidadSpan,cantidad);
     
-    var elemento_unitarioSpan = createElement("span",elementoLi);
-    asignar_propiedades(elemento_unitarioSpan,producto);
+    var elemento_unitarioSpan = create_pegar_elementosUl("span",elementoLi);
+    propiedades_elementosLi(elemento_unitarioSpan,producto);
     
-    var elemento_totalSpan = createElement("div",elementoLi);
+    var elemento_totalSpan = create_pegar_elementosUl("div",elementoLi);
     var valor_total = calcular_valor_total(elemento_cantidadSpan);
-    asignar_propiedades(elemento_totalSpan,valor_total);
+    propiedades_elementosLi(elemento_totalSpan,valor_total);
 
-    var elemento_modificarInput = createElement("input",elementoLi);
-    asignar_propiedades(elemento_modificarInput,"button");
+    var elemento_modificarInput = create_pegar_elementosUl("input",elementoLi);
+    propiedades_elementosLi(elemento_modificarInput,"Modificar");
     
     guardar_contenidoUl(elementoLi);
 }
