@@ -31,12 +31,11 @@ body{
     border-top: 1px solid black;
     border-right: 1px solid black;
     border-left: 1px solid black;
-    text-align: center;
 }
 
 .margen_subtitulo{
     display:inline-block;
-    width: 24%;
+    width: 19%;
 }
 
 .articulos{
@@ -69,6 +68,6 @@ body{
 
 .js_margen_contenido{
     display:inline-block;
-    width: 24%;
+    width: 19%;
     border-left: 1px solid black;
 }
