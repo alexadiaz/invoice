@@ -46,7 +46,7 @@ function comenzar(){
 
 function crear_contenidoUl(producto,cantidad,ul){
     var elementoLi = create_pegar_elementosUl("li",ul);
-       
+           
     var elemento_productoSpan = create_pegar_elementosUl("span",elementoLi);
     propiedades_elementosLi(elemento_productoSpan,producto);
     
@@ -75,14 +75,13 @@ function guardar_contenidoUl(li){
         articulo: li.children[0].textContent,
         cantidad: li.children[1].textContent,
         valor_unitatio: li.children[2].textContent,
-        valor_total: li.children[3].textContent,
-        modificar:false
+        valor_total: li.children[3].textContent
     }); 
     console.log(contenidoLi);
 }
 
 function modificar_contenidoUl(li){
-    console.log("hola");
+    
 }
 
 function calcular_valor_total(cantidad){
