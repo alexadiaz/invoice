@@ -128,5 +128,5 @@ var total=0;
 function calcular_total_factura(calculo){
     var total_factura= getId("total_factura");
     total= total + calculo;
-    total_factura.textContent = total;
+    total_factura.textContent = "$ " + total;
 }
