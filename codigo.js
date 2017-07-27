@@ -44,9 +44,11 @@ function comenzar(){
     });
 }
 
+var contador=0;
 function crear_contenidoUl(producto,cantidad,ul){
     var elementoLi = create_pegar_elementosUl("li",ul);
-           
+    elementoLi.data = contador += 1;
+    
     var elemento_productoSpan = create_pegar_elementosUl("span",elementoLi);
     propiedades_elementosLi(elemento_productoSpan,producto);
     
@@ -81,7 +83,11 @@ function guardar_contenidoUl(li){
 }
 
 function modificar_contenidoUl(li){
-    
+    nueva_info();
+}
+
+function nueva_info(){
+    return prompt("Ingrese producto");
 }
 
 function calcular_valor_total(cantidad){
