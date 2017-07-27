@@ -39,6 +39,8 @@ function comenzar(){
         if (keyname === "Enter"){
             if (ingresar_productoInput.value !== "" && ingresar_cantidadInput.value !==""){
                 crear_contenidoUl(ingresar_productoInput,ingresar_cantidadInput,contenidoUl);
+                ingresar_productoInput.value="";
+                ingresar_cantidadInput.value="";
             }
         }
     });
