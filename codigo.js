@@ -6,8 +6,10 @@ function getId(id){
     return document.getElementById(id);
 }
 
-function createElement(elemento){
-    return document.createElement(elemento);
+function createElement(elemento,pegar){
+    var temp = document.createElement(elemento);
+    pegar.appendChild(temp);
+    return temp;
 }
 
 function asignar_propiedades(elemento,contenido){
@@ -41,31 +43,24 @@ function comenzar(){
 }
 
 function crear_contenidoUl(producto,cantidad,ul){
-    var elementoLi = createElement("li");
+    var elementoLi = createElement("li",ul);
        
-    var elemento_productoSpan = createElement("span");
+    var elemento_productoSpan = createElement("span",elementoLi);
     asignar_propiedades(elemento_productoSpan,producto);
     
-    var elemento_cantidadSpan = createElement("span");
+    var elemento_cantidadSpan = createElement("span",elementoLi);
     asignar_propiedades(elemento_cantidadSpan,cantidad);
     
-    var elemento_unitarioSpan = createElement("span");
+    var elemento_unitarioSpan = createElement("span",elementoLi);
     asignar_propiedades(elemento_unitarioSpan,producto);
     
-    var elemento_totalSpan = createElement("div");
+    var elemento_totalSpan = createElement("div",elementoLi);
     var valor_total = calcular_valor_total(elemento_cantidadSpan);
     asignar_propiedades(elemento_totalSpan,valor_total);
 
-    var elemento_modificarInput = createElement("input");
+    var elemento_modificarInput = createElement("input",elementoLi);
     asignar_propiedades(elemento_modificarInput,"button");
     
-    elementoLi.appendChild(elemento_productoSpan);
-    elementoLi.appendChild(elemento_cantidadSpan);
-    elementoLi.appendChild(elemento_unitarioSpan);
-    elementoLi.appendChild(elemento_totalSpan);
-    elementoLi.appendChild(elemento_modificarInput);
-
-    ul.appendChild(elementoLi);
     guardar_contenidoUl(elementoLi);
 }
 
