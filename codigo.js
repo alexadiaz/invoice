@@ -36,7 +36,12 @@ function comenzar(){
     ingresar_cantidadInput.addEventListener("keyup", (event)=>{
         var keyname = event.key; 
 
-        if (keyname === "Enter"){
+         var charCode = (event.which) ? event.which : event.keyCode
+         if (charCode > 31 && (charCode < 48 || charCode > 57)){
+            alert("Digitar solo numeros");
+            ingresar_cantidadInput.value="";
+         }
+         if (keyname === "Enter"){
             if (ingresar_productoInput.value !== "" && ingresar_cantidadInput.value !==""){
                 crear_contenidoUl(ingresar_productoInput,ingresar_cantidadInput,contenidoUl);
                 ingresar_productoInput.value="";
