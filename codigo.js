@@ -11,13 +11,19 @@ function createElement(elemento){
 }
 
 function asignar_propiedades(elemento,contenido){
-    if(elemento.nodeName==="SPAN"){
-        elemento.textContent = contenido.value;
+    switch(elemento.nodeName){
+        case "SPAN":
+            elemento.textContent=contenido.value;
+            elemento.className="js_margen_contenido";
+            break;
+        case "DIV":
+            elemento.innerText=contenido;
+            elemento.className="js_margen_contenido";
+            break; 
+        case "INPUT":
+            elemento.type= contenido;
+            elemento.value="Modificar";
     }
-    else{
-        elemento.innerText=contenido;
-    }
-    elemento.className= "js_margen_contenido";
 }
 
 function comenzar(){
@@ -49,11 +55,15 @@ function crear_contenidoUl(producto,cantidad,ul){
     var elemento_totalSpan = createElement("div");
     var valor_total = calcular_valor_total(elemento_cantidadSpan);
     asignar_propiedades(elemento_totalSpan,valor_total);
+
+    var elemento_modificarInput = createElement("input");
+    asignar_propiedades(elemento_modificarInput,"button");
     
     elementoLi.appendChild(elemento_productoSpan);
     elementoLi.appendChild(elemento_cantidadSpan);
     elementoLi.appendChild(elemento_unitarioSpan);
     elementoLi.appendChild(elemento_totalSpan);
+    elementoLi.appendChild(elemento_modificarInput);
 
     ul.appendChild(elementoLi);
     guardar_contenidoUl(elementoLi);
