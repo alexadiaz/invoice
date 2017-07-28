@@ -115,18 +115,12 @@ function eliminar_contenidoLi(li){
 }
 
 function actualizar_pantalla(li){
-    li.parentElement.removeChild(li);
-    /*for (var i in contenidoLi){
-        if(accion ="modificar"){
-            if(li.data === contenidoLi[i].id){
-                li.firstChild.textContent = contenidoLi[i].articulo;
-            }
+    //li.parentElement.removeChild(li);
+    for (var i in contenidoLi){
+        if(li.data === contenidoLi[i].id){
+            li.firstChild.textContent = contenidoLi[i].articulo;
         }
-        else{
-           
-
-        }        
-    }*/
+    }
 }
 
 function nueva_info(li){
