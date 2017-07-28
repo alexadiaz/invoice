@@ -109,7 +109,7 @@ function modificar_contenidoLi(li){
             contenidoLi[i].articulo = nueva_info(li);
         }
     }
-    actualizar_pantalla(li);
+    crear_contenidoUl(li.parentElement);
 }
 
 function eliminar_contenidoLi(li){
@@ -118,16 +118,7 @@ function eliminar_contenidoLi(li){
             contenidoLi.splice(i,1);
         }
     }
-    actualizar_pantalla(li);
-}
-
-function actualizar_pantalla(li){
-    //li.parentElement.removeChild(li);
-    for (var i in contenidoLi){
-        if(li.data === contenidoLi[i].id){
-            li.firstChild.textContent = contenidoLi[i].articulo;
-        }
-    }
+    crear_contenidoUl(li.parentElement);
 }
 
 function nueva_info(li){
