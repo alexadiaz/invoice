@@ -91,7 +91,6 @@ function guardar_contenidoUl(li){
         valor_unitatio: li.children[2].textContent,
         valor_total: li.children[3].textContent
     }); 
-    console.log(contenidoLi);
 }
 
 function modificar_contenidoUl(li){
@@ -124,12 +123,12 @@ function nueva_info(li){
 function calcular_valor_total(cantidad){
     var calculo = parseInt(cantidad.textContent)*10;
     calcular_total_factura(calculo);
-    return calculo;
+    return "$ " + new Intl.NumberFormat("es-CO").format(calculo);
 }
 
 var total=0;
 function calcular_total_factura(calculo){
     var total_factura= getId("total_factura");
     total= total + calculo;
-    total_factura.textContent = "$ " + total;
+    total_factura.textContent = "$ " + new Intl.NumberFormat("es-CO").format(total);
 }
