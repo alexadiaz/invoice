@@ -73,6 +73,11 @@ function guardar_contenidoUl(producto,cantidad){
 }
 
 function crear_contenidoUl(ul){
+
+    while(ul.firstChild !== null){
+        ul.removeChild(ul.firstChild);
+    }
+
     for(var i in contenidoLi){
         var elementoLi = create_pegar_elementosUl("li",ul);
         elementoLi.data = contenidoLi[i].id;
