@@ -32,7 +32,8 @@ function comenzar(){
     var ingresar_productoInput = getId("ingresar_producto");
     var ingresar_cantidadInput = getId("ingresar_cantidad");
     var contenidoUl = getId("contenido");
-    
+    var terminarInput = getId("terminar");
+
     ingresar_cantidadInput.addEventListener("keyup", (event)=>{
         var keyname = event.key; 
 
@@ -50,6 +51,11 @@ function comenzar(){
             }
         }
     });
+
+    terminarInput.addEventListener("click",function(){
+        ingresar_productoInput.disabled=true;
+        ingresar_cantidadInput.disabled=true;
+    });    
 }
 
 var contador=0;
