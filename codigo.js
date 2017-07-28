@@ -75,6 +75,9 @@ function crear_contenidoUl(producto,cantidad,ul){
     elemento_modificarInput.addEventListener("click",function(){
         modificar_contenidoUl(this.parentElement);
     });
+
+    var elemento_eliminarInput = create_pegar_elementosUl("input", elementoLi);
+    propiedades_elementosLi(elemento_eliminarInput,"Eliminar");
     
     guardar_contenidoUl(elementoLi);
 }

@@ -35,7 +35,7 @@ body{
 
 .margen_subtitulo{
     display:inline-block;
-    width: 19%;
+    width: 16%;
 }
 
 .articulos{
@@ -68,6 +68,6 @@ body{
 
 .js_margen_contenido{
     display:inline-block;
-    width: 19%;
+    width: 16%;
     border-left: 1px solid black;
 }
