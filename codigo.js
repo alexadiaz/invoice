@@ -73,11 +73,14 @@ function crear_contenidoUl(producto,cantidad,ul){
     var elemento_modificarInput = create_pegar_elementosUl("input",elementoLi);
     propiedades_elementosLi(elemento_modificarInput,"Modificar");
     elemento_modificarInput.addEventListener("click",function(){
-        modificar_contenidoUl(this.parentElement);
+        modificar_contenidoLi(this.parentElement);
     });
 
     var elemento_eliminarInput = create_pegar_elementosUl("input", elementoLi);
     propiedades_elementosLi(elemento_eliminarInput,"Eliminar");
+    elemento_eliminarInput.addEventListener("click",function(){
+        eliminar_contenidoLi(this.parentElement);
+    });
     
     guardar_contenidoUl(elementoLi);
 }
@@ -93,7 +96,7 @@ function guardar_contenidoUl(li){
     }); 
 }
 
-function modificar_contenidoUl(li){
+function modificar_contenidoLi(li){
     for (var i in contenidoLi){
         if(li.data === contenidoLi[i].id){
             contenidoLi[i].articulo = nueva_info(li);
@@ -102,12 +105,28 @@ function modificar_contenidoUl(li){
     actualizar_pantalla(li);
 }
 
-function actualizar_pantalla(li){
-     for (var i in contenidoLi){
+function eliminar_contenidoLi(li){
+    for(i in contenidoLi){
         if(li.data === contenidoLi[i].id){
-            li.firstChild.textContent = contenidoLi[i].articulo;
+            contenidoLi.splice(i,1);
         }
     }
+    actualizar_pantalla(li);
+}
+
+function actualizar_pantalla(li){
+    li.parentElement.removeChild(li);
+    /*for (var i in contenidoLi){
+        if(accion ="modificar"){
+            if(li.data === contenidoLi[i].id){
+                li.firstChild.textContent = contenidoLi[i].articulo;
+            }
+        }
+        else{
+           
+
+        }        
+    }*/
 }
 
 function nueva_info(li){
