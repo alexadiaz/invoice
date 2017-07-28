@@ -56,14 +56,20 @@ body{
 
 .firma{
     display: inline-block;
-    margin-left: 30%;
+    margin-left: 15%;
     border-top: 1px solid black;
 }
 
 .total_factura{
     display: inline-block;
     position: absolute;
-    right: 20px;
+    right: 250px;
+}
+
+.terminar{
+    display: inline-block;
+    position: absolute;
+    right: 50px;
 }
 
 .js_margen_contenido{
