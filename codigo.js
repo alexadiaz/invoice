@@ -69,11 +69,10 @@ function guardar_contenidoUl(producto,cantidad){
         valor_unitario: 10,
         valor_total: calcular_valor_total(cantidad.value)
     }); 
-    console.log(contenidoLi);
 }
 
 function crear_contenidoUl(ul){
-
+    var total=0;
     while(ul.firstChild !== null){
         ul.removeChild(ul.firstChild);
     }
@@ -105,7 +104,11 @@ function crear_contenidoUl(ul){
         elemento_eliminarInput.addEventListener("click",function(){
             eliminar_contenidoLi(this.parentElement);
         }); 
+
+        total= calcular_total_factura(contenidoLi[i].valor_total,total);
     } 
+    var total_factura = getId("total_factura");
+    total_factura.textContent = total;
 }
 
 function modificar_contenidoLi(li){
@@ -120,11 +123,9 @@ function modificar_contenidoLi(li){
 function eliminar_contenidoLi(li){
     for(i in contenidoLi){
         if(li.data === contenidoLi[i].id){
-            var borrar = contenidoLi[i].valor_total;
-            contenidoLi.splice(i,1);
+           contenidoLi.splice(i,1);
         }
     }
-    calcular_total_factura(borrar,"restar");
     crear_contenidoUl(li.parentElement);
 }
 
@@ -139,16 +140,14 @@ function nueva_info(li){
 }
 
 function calcular_valor_total(cantidad){
-    var calculo = parseInt(cantidad)*10;
-    calcular_total_factura(calculo,"sumar");
-    return calculo;
-    //return "$ " + new Intl.NumberFormat("es-CO").format(calculo);
+    return calculo = parseInt(cantidad)*10;
 }
 
-var total=0;
-function calcular_total_factura(calculo,operacion){
-    var total_factura= getId("total_factura");
-    if (operacion==="sumar") total= total + calculo;
-    else total = total - parseInt(calculo);
-    total_factura.textContent = "$ " + new Intl.NumberFormat("es-CO").format(total);
+function calcular_total_factura(calculo,total){
+    total= parseInt(total) + parseInt(calculo);
+    return total;
+}
+
+function formato_moneda(){
+    //total_factura.textContent = "$ " + new Intl.NumberFormat("es-CO").format(total);
 }
