@@ -72,7 +72,7 @@ function guardar_contenidoUl(producto,cantidad){
 }
 
 function crear_contenidoUl(ul){
-    var total=0;
+    var total = 0;
     while(ul.firstChild !== null){
         ul.removeChild(ul.firstChild);
     }
@@ -91,7 +91,7 @@ function crear_contenidoUl(ul){
         propiedades_elementosLi(elemento_unitarioSpan,contenidoLi[i].valor_unitario);
 
         var elemento_totalSpan = create_pegar_elementosUl("div",elementoLi);
-        propiedades_elementosLi(elemento_totalSpan,contenidoLi[i].valor_total);
+        propiedades_elementosLi(elemento_totalSpan,formato_moneda(contenidoLi[i].valor_total));
         
         var elemento_modificarInput = create_pegar_elementosUl("input",elementoLi);
         propiedades_elementosLi(elemento_modificarInput,"Modificar");
@@ -108,7 +108,7 @@ function crear_contenidoUl(ul){
         total= calcular_total_factura(contenidoLi[i].valor_total,total);
     } 
     var total_factura = getId("total_factura");
-    total_factura.textContent = total;
+    total_factura.textContent = formato_moneda(total);
 }
 
 function modificar_contenidoLi(li){
@@ -148,6 +148,6 @@ function calcular_total_factura(calculo,total){
     return total;
 }
 
-function formato_moneda(){
-    //total_factura.textContent = "$ " + new Intl.NumberFormat("es-CO").format(total);
+function formato_moneda(valor){
+    return "$ " + new Intl.NumberFormat("es-CO").format(valor);
 }
