@@ -45,7 +45,7 @@ function comenzar(){
          if (keyname === "Enter"){
             if (ingresar_productoInput.value !== "" && ingresar_cantidadInput.value !==""){
                 guardar_contenidoUl(ingresar_productoInput,ingresar_cantidadInput);
-                crear_contenidoUl(contenidoUl);
+                crear_contenidoUl(contenidoUl,"mostrar");
                 ingresar_productoInput.value="";
                 ingresar_productoInput.focus();
                 ingresar_cantidadInput.value="";
@@ -56,6 +56,8 @@ function comenzar(){
     terminarInput.addEventListener("click",function(){
         ingresar_productoInput.disabled=true;
         ingresar_cantidadInput.disabled=true;
+        terminarInput.disabled=true;
+        crear_contenidoUl(contenidoUl,"terminar");
     });    
 }
 
@@ -71,7 +73,7 @@ function guardar_contenidoUl(producto,cantidad){
     }); 
 }
 
-function crear_contenidoUl(ul){
+function crear_contenidoUl(ul,accion){
     var total = 0;
     while(ul.firstChild !== null){
         ul.removeChild(ul.firstChild);
@@ -93,17 +95,19 @@ function crear_contenidoUl(ul){
         var elemento_totalSpan = create_pegar_elementosUl("div",elementoLi);
         propiedades_elementosLi(elemento_totalSpan,formato_moneda(contenidoLi[i].valor_total));
         
-        var elemento_modificarInput = create_pegar_elementosUl("input",elementoLi);
-        propiedades_elementosLi(elemento_modificarInput,"Modificar");
-        elemento_modificarInput.addEventListener("click",function(){
-            modificar_contenidoLi(this.parentElement);
-        });
+        if(accion !== "terminar"){
+            var elemento_modificarInput = create_pegar_elementosUl("input",elementoLi);
+            propiedades_elementosLi(elemento_modificarInput,"Modificar");
+            elemento_modificarInput.addEventListener("click",function(){
+                modificar_contenidoLi(this.parentElement);
+            });
 
-        var elemento_eliminarInput = create_pegar_elementosUl("input", elementoLi);
-        propiedades_elementosLi(elemento_eliminarInput,"Eliminar");
-        elemento_eliminarInput.addEventListener("click",function(){
-            eliminar_contenidoLi(this.parentElement);
-        }); 
+            var elemento_eliminarInput = create_pegar_elementosUl("input", elementoLi);
+            propiedades_elementosLi(elemento_eliminarInput,"Eliminar");
+            elemento_eliminarInput.addEventListener("click",function(){
+                eliminar_contenidoLi(this.parentElement);
+            });
+        } 
 
         total= calcular_total_factura(contenidoLi[i].valor_total,total);
     } 
@@ -117,7 +121,7 @@ function modificar_contenidoLi(li){
             contenidoLi[i].articulo = nueva_info(li);
         }
     }
-    crear_contenidoUl(li.parentElement);
+    crear_contenidoUl(li.parentElement,"mostrar");
 }
 
 function eliminar_contenidoLi(li){
@@ -126,7 +130,7 @@ function eliminar_contenidoLi(li){
            contenidoLi.splice(i,1);
         }
     }
-    crear_contenidoUl(li.parentElement);
+    crear_contenidoUl(li.parentElement,"mostrar");
 }
 
 function nueva_info(li){
