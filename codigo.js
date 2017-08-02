@@ -42,21 +42,23 @@ function comenzar(){
         if(resultado == false){
             alert("Digitar solo numeros");
             ingresar_cantidadInput.value="";
+            return;
         }
-        else{
 
-            var keyname = event.key; 
-            if (keyname === "Enter"){
-                if( es_inputs_validos(ingresar_productoInput,ingresar_cantidadInput) === true ){
-
-                    guardar_contenidoUl(ingresar_productoInput,ingresar_cantidadInput);
-                    crear_contenidoUl(contenidoUl,"mostrar");
-                    ingresar_productoInput.value="";
-                    ingresar_productoInput.focus();
-                    ingresar_cantidadInput.value="";
-                }
-            }
+        var keyname = event.key; 
+        if (keyname !== "Enter"){
+            return;
         }
+
+        if( es_inputs_validos(ingresar_productoInput,ingresar_cantidadInput) === false ){
+            return;
+        }
+
+        guardar_contenidoUl(ingresar_productoInput,ingresar_cantidadInput);
+        crear_contenidoUl(contenidoUl,"mostrar");
+        ingresar_productoInput.value="";
+        ingresar_productoInput.focus();
+        ingresar_cantidadInput.value="";
     });
       
     terminarInput.addEventListener("click",function(){
@@ -90,7 +92,7 @@ function es_inputs_validos(ingresar_productoInput, ingresar_cantidadInput){
 
 var contenidoLi=[];
 var contador=0;
-function guardar_contenidoUl(producto,cantidad ){
+function guardar_contenidoUl(producto,cantidad){
     if (isNuevo){
         contenidoLi.push({
             id: contador += 1,
